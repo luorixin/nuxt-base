@@ -23,7 +23,12 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/element-ui', '@/plugins/filter', '@/plugins/i18n'],
+  plugins: [
+    '@/plugins/element-ui',
+    '@/plugins/filter',
+    '@/plugins/i18n'
+    // '@/plugins/tongji'
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

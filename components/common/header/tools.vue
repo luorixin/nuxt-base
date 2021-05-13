@@ -3,12 +3,15 @@
     <nuxt-link to="/">帮助</nuxt-link>
     <nuxt-link to="/">定价</nuxt-link>
     <nuxt-link to="/">登陆</nuxt-link>
-    <el-button type="primary" plain>立即免费使用</el-button>
+    <freetry :plain="true"></freetry>
   </div>
 </template>
 
 <script>
-export default {}
+import freetry from './freetry.vue'
+export default {
+  components: { freetry }
+}
 </script>
 
 <style scoped lang="scss">

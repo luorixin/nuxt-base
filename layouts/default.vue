@@ -81,6 +81,9 @@ export default {
   height: 100vh;
   width: 100%;
   overflow: scroll;
+  * {
+    box-sizing: border-box;
+  }
 }
 /deep/ .el-icon-caret-top {
   font-size: 20px;
@@ -105,7 +108,7 @@ export default {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 60px;
+  height: 30px;
   z-index: 300;
 }
 </style>
