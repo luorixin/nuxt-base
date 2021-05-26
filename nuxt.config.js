@@ -11,7 +11,8 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'referrer', content: 'no-referrer' } // 解决 网络图片 img 403问题
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [{ src: '/rem.js', type: 'text/javascript', charset: 'utf-8' }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -73,12 +74,12 @@ export default {
   },
   axios: {
     proxy: true,
-    baseURL: 'http://localhost:8093/'
+    baseURL: 'http://localhost:8999/'
   },
   proxy: {
-    '/blog': 'http://127.0.0.1:8093/',
+    '/blog': 'http://127.0.0.1:8999/',
     '/public/': {
-      target: 'http://127.0.0.1:8093/'
+      target: 'http://127.0.0.1:8999/'
     }
   }
 }

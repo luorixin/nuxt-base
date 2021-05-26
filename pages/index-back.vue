@@ -4,10 +4,12 @@
     <section class="home-screen">
       <div class="home-screen__head">
         <div class="head-text">
-          <div class="text-title">Parllay企微管家</div>
-          <div class="text-desc">基于企业微信构建营销自动化和用户增长体系</div>
+          <div class="text-title">企业微信私域流量运营神器</div>
+          <div class="text-desc">
+            全面升级企业微信，多渠道引流获客，精细化客户管理，高效社群运营，让管理和营销更简单！
+          </div>
           <div class="text-opt">
-            <freetry type="primary">立即免费使用</freetry>
+            <freetry type="plain">立即免费使用</freetry>
           </div>
         </div>
         <div class="head-carousel">
@@ -62,46 +64,48 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    height: 7.7333rem;
-    background: #333;
+    height: 518px;
+    background: linear-gradient(
+      70deg,
+      rgba(245, 244, 254, 0.9),
+      #f9fcff 44%,
+      #eef5ff
+    );
   }
   .home-screen {
     position: relative;
     .home-screen__head {
       position: relative;
-      height: 7.7333rem;
+      height: 518px;
       .head-text {
         position: absolute;
-        left: 2.64rem;
-        top: 2.5733rem;
+        left: 100px;
+        top: 150px;
         z-index: 100;
         .text-title {
-          font-family: PingFangSC-Semibold;
-          font-size: 0.8rem;
-          color: #ffffff;
-          letter-spacing: 0;
-          height: 1.12rem;
-          line-height: 1.12rem;
+          height: 59px;
+          font-size: 42px;
+          font-family: PingFangSC-Semibold, PingFang SC;
+          font-weight: 600;
+          color: rgba(0, 0, 0, 0.85);
+          line-height: 59px;
         }
         .text-desc {
-          margin-top: 0.12rem;
-          font-family: PingFangSC-Regular;
-          font-size: 0.24rem;
-          color: #ffffff;
-          letter-spacing: 0;
-          line-height: 0.3867rem;
-        }
-        .text-opt {
-          margin-top: 0.8133rem;
-          font-size: 0.1867rem;
+          width: 492px;
+          margin: 32px 0;
+          font-size: 18px;
+          font-family: PingFangSC-Regular, PingFang SC;
+          font-weight: 400;
+          color: rgba(0, 0, 0, 0.85);
+          line-height: 30px;
         }
       }
       .head-carousel {
         position: absolute;
-        top: 1.3333rem;
-        right: 1.3867rem;
-        width: 9.5733rem;
-        height: 5.3867rem;
+        top: 60px;
+        right: 20px;
+        width: 634px;
+        height: 438px;
       }
     }
   }

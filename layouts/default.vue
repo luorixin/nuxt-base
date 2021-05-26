@@ -16,7 +16,7 @@
     <el-footer class="myfooter">
       <my-footer />
     </el-footer>
-    <el-backtop target=".layout-default" :visibility-height="60"></el-backtop>
+    <el-backtop target=".layout-default" :visibility-height="132"></el-backtop>
   </el-container>
 </template>
 
@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     handleScroll(e) {
-      if (e.target.scrollTop > 60) {
+      if (e.target.scrollTop > 132) {
         this.isScroll = true
       } else {
         this.isScroll = false
@@ -80,6 +80,7 @@ export default {
 .layout-default {
   height: 100vh;
   width: 100%;
+  min-width: 1024px;
   overflow: scroll;
   * {
     box-sizing: border-box;
@@ -93,12 +94,12 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 60px;
+  height: 100px !important;
   z-index: 300;
-  &.scrollCls {
-    background: #fff;
-    box-shadow: 0 2px 8px 0 rgba(21, 21, 21, 0.09);
-  }
+  // &.scrollCls {
+  //   background: #fff;
+  //   box-shadow: 0 2px 8px 0 rgba(21, 21, 21, 0.09);
+  // }
 }
 .mymain {
   padding: 0;
