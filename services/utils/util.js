@@ -30,6 +30,20 @@ Utils.validateUrl = url => {
 }
 
 /**
+ * 手机号验证
+ * @param {String}} phone
+ * @returns
+ */
+Utils.validatePhone = phone => {
+  if (!phone) {
+    return false
+  }
+  return /^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/.test(
+    phone
+  )
+}
+
+/**
  * 格式化时间
  * @param {Date} timestamp    时间对象
  * @param {String} formats      格式

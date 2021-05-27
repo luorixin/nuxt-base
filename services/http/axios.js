@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import axios from 'axios'
 import Config from '@/config'
+import qs from 'qs'
 
 const config = {
   baseURL: Config.baseUrl,
@@ -136,6 +137,25 @@ export function put(url, data = {}, params = {}) {
 export function _delete(url, params = {}) {
   return _axios({
     method: 'delete',
+    url,
+    params
+  })
+}
+
+export function postForm(url, data = {}) {
+  data = qs.stringify(data)
+  return _axios({
+    method: 'post',
+    url,
+    data
+  })
+}
+
+export function getForm(url, params = {}) {
+  console.log(params)
+  params = qs.stringify(params)
+  return _axios({
+    method: 'get',
     url,
     params
   })

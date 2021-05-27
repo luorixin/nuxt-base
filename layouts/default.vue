@@ -2,6 +2,8 @@
   <el-container ref="layout" class="layout-default">
     <el-header
       class="myheader"
+      height="1.066667rem"
+      ref="header"
       :class="{ hideHead: $store.state.hideHead, scrollCls: isScroll }"
     >
       <my-header />
@@ -13,10 +15,10 @@
         </transition>
       </div>
     </el-main>
-    <el-footer class="myfooter">
+    <el-footer class="myfooter" height="3.072rem">
       <my-footer />
     </el-footer>
-    <el-backtop target=".layout-default" :visibility-height="132"></el-backtop>
+    <el-backtop target=".layout-default" :visibility-height="100"></el-backtop>
   </el-container>
 </template>
 
@@ -65,7 +67,8 @@ export default {
   },
   methods: {
     handleScroll(e) {
-      if (e.target.scrollTop > 132) {
+      const headerHeight = this.$refs.header.$el.offsetHeight
+      if (e.target.scrollTop > headerHeight) {
         this.isScroll = true
       } else {
         this.isScroll = false
@@ -80,36 +83,41 @@ export default {
 .layout-default {
   height: 100vh;
   width: 100%;
-  min-width: 1024px;
+  min-width: 10.922667rem /* 1024/93.75 */;
   overflow: scroll;
   * {
     box-sizing: border-box;
   }
 }
 /deep/ .el-icon-caret-top {
-  font-size: 20px;
+  font-size: 0.213333rem /* 20/93.75 */;
 }
 .myheader {
   background: transparent;
   position: fixed;
   top: 0;
   width: 100%;
-  height: 100px !important;
+  height: 1.066667rem /* 100/93.75 */ !important;
   z-index: 300;
-  // &.scrollCls {
-  //   background: #fff;
-  //   box-shadow: 0 2px 8px 0 rgba(21, 21, 21, 0.09);
-  // }
+  transition: all 0.5s;
+  &.scrollCls {
+    display: none;
+    // background: #fff;
+    // box-shadow: 0 0.021333rem 0.085333rem 0 rgba(21, 21, 21, 0.09);
+  }
 }
 .mymain {
   padding: 0;
   overflow: unset;
 }
 .myfooter {
-  position: fixed;
-  bottom: 0;
+  position: relative;
   width: 100%;
-  height: 30px;
+  height: 3.072rem /* 288/93.75 */;
   z-index: 300;
+  background: #202020;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

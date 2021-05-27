@@ -1,9 +1,6 @@
 <template>
   <div class="mytools">
-    <nuxt-link to="/">帮助</nuxt-link>
-    <nuxt-link to="/">定价</nuxt-link>
-    <nuxt-link to="/">登陆</nuxt-link>
-    <freetry :plain="true"></freetry>
+    <freetry type="primary">登陆</freetry>
   </div>
 </template>
 
@@ -18,11 +15,5 @@ export default {
 .mytools {
   display: flex;
   align-items: center;
-  a {
-    display: inline-block;
-    line-height: 24px;
-    font-size: 16px;
-    margin-right: 36px;
-  }
 }
 </style>

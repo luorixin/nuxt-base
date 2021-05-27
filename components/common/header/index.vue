@@ -2,7 +2,6 @@
   <div class="m-header">
     <div class="hleft">
       <logo></logo>
-      <nav-bar></nav-bar>
     </div>
     <div class="hright">
       <tools></tools>
@@ -16,7 +15,6 @@ import navBar from './navbar.vue'
 import tools from './tools.vue'
 export default {
   components: {
-    navBar,
     Logo,
     tools
   }

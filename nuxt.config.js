@@ -25,7 +25,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/element-ui',
+    '@/plugins/element-ui/element-ui',
     '@/plugins/filter',
     '@/plugins/i18n'
     // '@/plugins/tongji'
@@ -74,10 +74,15 @@ export default {
   },
   axios: {
     proxy: true,
-    baseURL: 'http://localhost:8999/'
+    baseURL: 'http://localhost:8093/'
   },
   proxy: {
-    '/blog': 'http://127.0.0.1:8999/',
+    '/business/': {
+      target: 'http://127.0.0.1:8093/',
+      pathRewrite: {
+        '^/business/': ''
+      }
+    },
     '/public/': {
       target: 'http://127.0.0.1:8999/'
     }
