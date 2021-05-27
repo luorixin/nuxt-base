@@ -76,6 +76,7 @@ export default {
     proxy: true,
     baseURL: 'http://localhost:8093/'
   },
+  target: 'static',
   proxy: {
     '/business/': {
       target: 'http://127.0.0.1:8093/',
