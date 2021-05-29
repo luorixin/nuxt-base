@@ -1,12 +1,7 @@
 import Vue from 'vue'
 import {
-  Carousel,
-  CarouselItem,
   Message,
   Dialog,
-  Dropdown,
-  DropdownMenu,
-  DropdownItem,
   Menu,
   Submenu,
   MenuItem,
@@ -15,23 +10,19 @@ import {
   InputNumber,
   Button,
   Tooltip,
+  Icon,
   Row,
   Col,
   Form,
   FormItem,
-  Tabs,
-  TabPane,
   Container,
   Header,
-  Aside,
   Main,
   Footer,
   Link,
   Divider,
   Image,
-  Calendar,
   Backtop,
-  PageHeader,
   Loading,
   MessageBox,
   Notification
@@ -39,12 +30,7 @@ import {
 import locale from 'element-ui/lib/locale/lang/en'
 import './element-variable.scss'
 
-Vue.use(Carousel, { locale })
-Vue.use(CarouselItem, { locale })
 Vue.use(Dialog, { locale })
-Vue.use(Dropdown, { locale })
-Vue.use(DropdownMenu, { locale })
-Vue.use(DropdownItem, { locale })
 Vue.use(Menu, { locale })
 Vue.use(Submenu, { locale })
 Vue.use(MenuItem, { locale })
@@ -57,19 +43,15 @@ Vue.use(Button, { locale })
 Vue.use(Tooltip, { locale })
 Vue.use(Form, { locale })
 Vue.use(FormItem, { locale })
-Vue.use(Tabs, { locale })
-Vue.use(TabPane, { locale })
+Vue.use(Icon, { locale })
 Vue.use(Container, { locale })
 Vue.use(Header, { locale })
-Vue.use(Aside, { locale })
 Vue.use(Main, { locale })
 Vue.use(Footer, { locale })
 Vue.use(Link, { locale })
 Vue.use(Divider, { locale })
 Vue.use(Image, { locale })
-Vue.use(Calendar, { locale })
 Vue.use(Backtop, { locale })
-Vue.use(PageHeader, { locale })
 
 Vue.use(Loading.directive)
 

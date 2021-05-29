@@ -26,28 +26,28 @@
     <section class="home-detail">
       <div class="detail-tabs">
         <span
-          @click="chaneTab(0)"
+          @mouseover="chaneTab(0)"
           class="tab"
           :class="{ active: activeTab === 0 }"
           >高效获客</span
         >
         <span class="tabs-divider"></span>
         <span
-          @click="chaneTab(1)"
+          @mouseover="chaneTab(1)"
           class="tab"
           :class="{ active: activeTab === 1 }"
           >销售转化</span
         >
         <span class="tabs-divider"></span>
         <span
-          @click="chaneTab(2)"
+          @mouseover="chaneTab(2)"
           class="tab"
           :class="{ active: activeTab === 2 }"
           >社群运营</span
         >
         <span class="tabs-divider"></span>
         <span
-          @click="chaneTab(3)"
+          @mouseover="chaneTab(3)"
           class="tab"
           :class="{ active: activeTab === 3 }"
           >企业风控</span
