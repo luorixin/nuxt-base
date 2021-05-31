@@ -18,7 +18,7 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     'element-ui/lib/theme-chalk/reset.css',
-    'element-ui/lib/theme-chalk/index.css',
+    // 'element-ui/lib/theme-chalk/index.css',
     '@/assets/css/reset.css',
     '@/assets/css/index.css'
   ],
@@ -43,6 +43,18 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
+    analyze: true,
+    babel: {
+      plugins: [
+        [
+          'component',
+          {
+            libraryName: 'element-ui',
+            styleLibraryName: 'theme-chalk'
+          }
+        ]
+      ]
+    },
     /*
      ** You can extend webpack config here
      */

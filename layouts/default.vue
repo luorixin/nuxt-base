@@ -114,7 +114,7 @@ export default {
   position: relative;
   width: 100%;
   height: 3.072rem /* 288/93.75 */;
-  z-index: 300;
+  z-index: 3;
   background: #202020;
   display: flex;
   align-items: center;
