@@ -128,7 +128,7 @@
 <script>
 import Util from '@/services/utils/util'
 import Config from '@/config'
-import { get, postForm, getForm } from '@/services/http/axios'
+import { get, post, postForm, getForm } from '@/services/http/axios'
 export default {
   props: {
     type: {
@@ -243,9 +243,12 @@ export default {
     },
     async getVerifyCode() {
       if (Util.validatePhone(this.registerForm.phone)) {
-        const data = await get('business/v2/auth/verifyCode', {
+        const data = await get('/v2/auth/verifyCode', {
           phone: this.registerForm.phone
         })
+        // const data = await post('/getVerifyCode', {
+        //   phone: this.registerForm.phone
+        // })
         if (data && data.success) {
           this.$message.success('验证码发送成功，请查收')
         }
@@ -257,35 +260,37 @@ export default {
       this.$refs.ruleForm.validate(valid => {
         if (valid) {
           const loginEntify = { ...this.ruleForm }
-          postForm('business/v2/auth/login', loginEntify).then(data => {
+          postForm('/v2/auth/login', loginEntify).then(data => {
             if (data && data.user) {
               // 获取公司id
-              get(
-                `business/business/getUserBusinesses?userId=${data.user.id}`
-              ).then(infos => {
-                if (infos && !infos.error) {
-                  // 获取登陆授权码登陆到内页
-                  let info = infos[0]
-                  get('business/auth/login/code', {
-                    businessId: info.id,
-                    userId: data.user.id
-                  }).then(authCode => {
-                    if (authCode && authCode.code) {
-                      window.open(
-                        `${location.protocol}//${Config.redirectUrl}/login?redirect=apps/wecom/&loginAuthCode=${authCode.code}`,
-                        '_blank'
-                      )
-                      this.freeTryVisible = false
-                    } else {
-                      this.$message.error(
-                        (authCode && authCode.error) || '获取授权码失败'
-                      )
-                    }
-                  })
-                } else {
-                  this.$message.error((infos && infos.error) || '获取公司失败')
+              get(`/business/getUserBusinesses?userId=${data.user.id}`).then(
+                infos => {
+                  if (infos && !infos.error) {
+                    // 获取登陆授权码登陆到内页
+                    let info = infos[0]
+                    get('/auth/login/code', {
+                      businessId: info.id,
+                      userId: data.user.id
+                    }).then(authCode => {
+                      if (authCode && authCode.code) {
+                        window.open(
+                          `${location.protocol}//${Config.redirectUrl}/login?redirect=apps/wecom/&loginAuthCode=${authCode.code}`,
+                          '_blank'
+                        )
+                        this.freeTryVisible = false
+                      } else {
+                        this.$message.error(
+                          (authCode && authCode.error) || '获取授权码失败'
+                        )
+                      }
+                    })
+                  } else {
+                    this.$message.error(
+                      (infos && infos.error) || '获取公司失败'
+                    )
+                  }
                 }
-              })
+              )
             } else {
               this.$message.error('登陆失败')
             }

@@ -1,14 +1,18 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'vue-ssr',
+    title: '烽火台企微运营官网',
     htmlAttrs: {
       lang: 'zh-CN'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: '烽火台企微运营官网'
+      },
       { name: 'referrer', content: 'no-referrer' } // 解决 网络图片 img 403问题
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -28,7 +32,7 @@ export default {
     '@/plugins/element-ui/element-ui',
     '@/plugins/filter',
     '@/plugins/i18n'
-    // '@/plugins/tongji'
+    // '@/plugins/dat.gui.min'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -86,14 +90,14 @@ export default {
   },
   axios: {
     proxy: true,
-    baseURL: 'http://localhost:8093/'
+    baseURL: 'http://m-dev.parllay.cn/'
   },
   target: 'static',
   proxy: {
-    '/business/': {
-      target: 'http://127.0.0.1:8093/',
+    '/business2/': {
+      target: 'http://10.27.3.103:8093/',
       pathRewrite: {
-        '^/business/': ''
+        '^/business/': '/'
       }
     },
     '/public/': {

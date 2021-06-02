@@ -10,9 +10,10 @@
             <freetry type="primary">立即免费使用</freetry>
           </div>
         </div>
-        <div class="head-carousel">
-          <el-image :src="headImgs.src"></el-image>
-        </div>
+        <!-- <div class="head-carousel"> -->
+        <!-- <el-image :src="headImgs.src"></el-image> -->
+        <canvas class="head-carousel" id="c"></canvas>
+        <!-- </div> -->
       </div>
     </section>
     <section class="home-feature">
@@ -87,6 +88,16 @@
 <script>
 import freetry from '../components/common/header/freetry.vue'
 export default {
+  head: {
+    script: [
+      {
+        src: '/js/dat.gui.min.js'
+      },
+      {
+        src: '/js/index.js'
+      }
+    ]
+  },
   components: { freetry },
   data() {
     return {
@@ -230,10 +241,14 @@ export default {
       }
       .head-carousel {
         position: absolute;
-        top: 1.066667rem /* 100/93.75 */;
-        right: 1.109333rem /* 104/93.75 */;
-        width: 7.658667rem /* 718/93.75 */;
-        height: 4.309333rem /* 404/93.75 */;
+        // top: 1.066667rem /* 100/93.75 */;
+        // right: 1.109333rem /* 104/93.75 */;
+        // width: 7.658667rem /* 718/93.75 */;
+        // height: 4.309333rem /* 404/93.75 */;
+        right: 0;
+        top: 1.066667rem;
+        width: 50%;
+        height: 4.539333rem /* 404/93.75 */;
       }
     }
   }
