@@ -1,5 +1,4 @@
 import Util from '../services/utils/util'
-import moment from 'moment'
 
 export const strict = false
 

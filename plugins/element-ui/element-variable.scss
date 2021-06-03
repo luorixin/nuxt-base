@@ -1,4 +1,6 @@
 
+$--border-radius-base: 0.042667rem /* 4/93.75 */!important;
+
 /* Typography
 -------------------------- */
 $--font-size-small: .128rem /* 12/93.75 */ !important;
@@ -14,6 +16,14 @@ $--pagination-font-size: .128rem /* 12/93.75 */ !important;
 /* Alert
 -------------------------- */
 $--alert-close-customed-font-size: .128rem /* 12/93.75 */ !important;
+
+/* Button
+-------------------------- */
+$--button-font-size: 0.149333rem /* 14/93.75 */;
+$--button-padding-vertical: 0.128rem /* 12/93.75 */;
+$--button-padding-horizontal: 0.213333rem /* 20/93.75 */;
+$--button-border-radius: $--border-radius-base;
+
 
 /// fontSize||Font|1
 $--checkbox-font-size: .128rem /* 12/93.75 */ !important;

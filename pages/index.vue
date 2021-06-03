@@ -21,7 +21,7 @@
         Parllay企微管家 助您打通微信用户数据，构建营销自动化与和用户增长体系
       </div>
       <div class="feature-bg">
-        <el-image class="feature-img" :src="featureImg.src"></el-image>
+        <img class="feature-img" :src="featureImg.src" />
       </div>
     </section>
     <section class="home-detail">
@@ -91,10 +91,10 @@ export default {
   head: {
     script: [
       {
-        src: '/js/dat.gui.min.js'
+        src: './js/dat.gui.min.js'
       },
       {
-        src: '/js/index.js'
+        src: './js/index.js'
       }
     ]
   },
@@ -102,19 +102,19 @@ export default {
   data() {
     return {
       headImgs: {
-        src: '/img/header-bg@2x.png'
+        src: './img/header-bg@2x.png'
       },
       featureImg: {
-        src: '/img/Group15@2x.png'
+        src: './img/Group15@2x.png'
       },
       lineImg: {
-        src: '/img/icon_04.png'
+        src: './img/icon_04.png'
       },
       activeTab: 0,
       detailCon: [
         {
           title: '高效获客',
-          img: '/img/高效获客@2x.png',
+          img: './img/高效获客@2x.png',
           detail: [
             {
               title: '批量加好友',
@@ -132,7 +132,7 @@ export default {
         },
         {
           title: '销售转化',
-          img: '/img/销售转化@2x.png',
+          img: './img/销售转化@2x.png',
           detail: [
             {
               title: '客户动态',
@@ -150,7 +150,7 @@ export default {
         },
         {
           title: '社群运营',
-          img: '/img/社群运营@2x.png',
+          img: './img/社群运营@2x.png',
           detail: [
             {
               title: '群SOP',
@@ -168,7 +168,7 @@ export default {
         },
         {
           title: '企业风控',
-          img: '/img/企业风控@2x.png',
+          img: './img/企业风控@2x.png',
           detail: [
             {
               title: '聊天违规提醒',

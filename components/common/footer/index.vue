@@ -13,7 +13,7 @@ export default {
   name: 'myFooter',
   data: () => {
     return {
-      codeImg: '/img/parllay营销自动化二维码.jpg'
+      codeImg: './img/parllay营销自动化二维码.jpg'
     }
   }
 }
@@ -35,11 +35,11 @@ export default {
   }
   .footer-con {
     font-family: PingFangSC-Regular;
-    font-size: 16px;
+    font-size: 0.170667rem /* 16/93.75 */;
     color: #ffffff;
     letter-spacing: -0.34px;
     text-align: center;
-    line-height: 25px;
+    line-height: 0.266667rem /* 25/93.75 */;
     width: 7.786667rem /* 730/93.75 */;
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-button :type="type" :plain="plain" @click="showFreeTry"
+    <el-button :type="type" :plain="plain" @click="showFreeTry()"
       ><slot>立即免费使用</slot></el-button
     >
     <!-- dialog -->
@@ -234,8 +234,13 @@ export default {
       this.registerVisible = false
     },
     showFreeTry() {
-      this.freeTryVisible = true
-      this.registerVisible = false
+      // this.freeTryVisible = true
+      // this.registerVisible = false
+      console.log(1)
+      window.open(
+        `${location.protocol}//${Config.redirectUrl}/login?redirect=apps/wecom/`,
+        '_blank'
+      )
     },
     showRegister() {
       this.freeTryVisible = false
