@@ -248,14 +248,14 @@ export default {
         right: 0;
         top: 1.066667rem;
         width: 50%;
-        height: 4.539333rem /* 404/93.75 */;
+        height: 5.013333rem /* 470/93.75 */;
       }
     }
   }
   .home-feature {
     position: relative;
     background: #fff;
-    height: 7.04rem /* 660/93.75 */;
+    height: 6.54rem /* 660/93.75 */;
     .feature-title {
       margin: 0.96rem auto /* 90/93.75 */;
       width: 100%;
@@ -283,6 +283,7 @@ export default {
       background: #fff;
       height: 1.536rem /* 144/93.75 */;
       padding: 0.544rem /* 51/93.75 */;
+      padding-top: 0;
       display: flex;
       justify-content: center;
       align-items: center;

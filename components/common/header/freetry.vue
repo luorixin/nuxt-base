@@ -236,7 +236,6 @@ export default {
     showFreeTry() {
       // this.freeTryVisible = true
       // this.registerVisible = false
-      console.log(1)
       window.open(
         `${location.protocol}//${Config.redirectUrl}/login?redirect=apps/wecom/`,
         '_blank'
@@ -248,12 +247,12 @@ export default {
     },
     async getVerifyCode() {
       if (Util.validatePhone(this.registerForm.phone)) {
-        const data = await get('/v2/auth/verifyCode', {
-          phone: this.registerForm.phone
-        })
-        // const data = await post('/getVerifyCode', {
+        // const data = await get('/v2/auth/verifyCode', {
         //   phone: this.registerForm.phone
         // })
+        const data = await post('/getVerifyCode', {
+          phone: this.registerForm.phone
+        })
         if (data && data.success) {
           this.$message.success('验证码发送成功，请查收')
         }
@@ -265,41 +264,52 @@ export default {
       this.$refs.ruleForm.validate(valid => {
         if (valid) {
           const loginEntify = { ...this.ruleForm }
-          postForm('/v2/auth/login', loginEntify).then(data => {
-            if (data && data.user) {
-              // 获取公司id
-              get(`/business/getUserBusinesses?userId=${data.user.id}`).then(
-                infos => {
-                  if (infos && !infos.error) {
-                    // 获取登陆授权码登陆到内页
-                    let info = infos[0]
-                    get('/auth/login/code', {
-                      businessId: info.id,
-                      userId: data.user.id
-                    }).then(authCode => {
-                      if (authCode && authCode.code) {
-                        window.open(
-                          `${location.protocol}//${Config.redirectUrl}/login?redirect=apps/wecom/&loginAuthCode=${authCode.code}`,
-                          '_blank'
-                        )
-                        this.freeTryVisible = false
-                      } else {
-                        this.$message.error(
-                          (authCode && authCode.error) || '获取授权码失败'
-                        )
-                      }
-                    })
-                  } else {
-                    this.$message.error(
-                      (infos && infos.error) || '获取公司失败'
-                    )
-                  }
-                }
+          postForm('/login', {
+            email: loginEntify.username,
+            password: loginEntify.password
+          }).then(res => {
+            if (res.success) {
+              window.open(
+                `${location.protocol}//${Config.redirectUrl}/apps/wecom/`,
+                '_blank'
               )
-            } else {
-              this.$message.error('登陆失败')
             }
           })
+          // postForm('/v2/auth/login', loginEntify).then(data => {
+          //   if (data && data.user) {
+          //     // 获取公司id
+          //     get(`/business/getUserBusinesses?userId=${data.user.id}`).then(
+          //       infos => {
+          //         if (infos && !infos.error) {
+          //           // 获取登陆授权码登陆到内页
+          //           let info = infos[0]
+          //           get('/auth/login/code', {
+          //             businessId: info.id,
+          //             userId: data.user.id
+          //           }).then(authCode => {
+          //             if (authCode && authCode.code) {
+          //               window.open(
+          //                 `${location.protocol}//${Config.redirectUrl}/login?redirect=apps/wecom/&loginAuthCode=${authCode.code}`,
+          //                 '_blank'
+          //               )
+          //               this.freeTryVisible = false
+          //             } else {
+          //               this.$message.error(
+          //                 (authCode && authCode.error) || '获取授权码失败'
+          //               )
+          //             }
+          //           })
+          //         } else {
+          //           this.$message.error(
+          //             (infos && infos.error) || '获取公司失败'
+          //           )
+          //         }
+          //       }
+          //     )
+          //   } else {
+          //     this.$message.error('登陆失败')
+          //   }
+          // })
         } else {
           console.log('error submit!!')
           return false
@@ -316,20 +326,32 @@ export default {
           accountEntity.phone = phone
           accountEntity.password = password
           accountEntity.password_again = checkPassWord || password
+          accountEntity.passwordAgain = checkPassWord || password
           accountEntity.username = email || email.split('@')[0]
           accountEntity.business_name = email
+          accountEntity.businessName = email
           accountEntity.channel = 'selfservice'
           accountEntity.domain = window.location.host
           accountEntity.verify_code = verifyCode
-          postForm('business/v3/auth/signup', accountEntity).then(data => {
+          accountEntity.verifyCode = verifyCode
+          postForm('/signup', accountEntity).then(data => {
             if (data && data.success) {
               this.$message.success('注册成功')
               this.registerVisible = false
               this.$refs['registerForm'].resetFields()
             } else {
-              this.$message.error(data.reason)
+              this.$message.error(data.reason || data.error)
             }
           })
+          // postForm('business/v3/auth/signup', accountEntity).then(data => {
+          //   if (data && data.success) {
+          //     this.$message.success('注册成功')
+          //     this.registerVisible = false
+          //     this.$refs['registerForm'].resetFields()
+          //   } else {
+          //     this.$message.error(data.reason)
+          //   }
+          // })
         } else {
           console.log('error submit!!')
           return false

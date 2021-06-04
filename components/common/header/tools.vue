@@ -1,6 +1,6 @@
 <template>
   <div class="mytools">
-    <freetry type="primary">登陆</freetry>
+    <freetry type="primary">登录</freetry>
   </div>
 </template>
 

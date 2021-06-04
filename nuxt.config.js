@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: '烽火台企微运营官网',
+    title: '烽火台企微管家官网',
     htmlAttrs: {
       lang: 'zh-CN'
     },
@@ -11,7 +11,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: '烽火台企微运营官网'
+        content: '烽火台企微管家官网'
       },
       { name: 'referrer', content: 'no-referrer' } // 解决 网络图片 img 403问题
     ],
@@ -77,7 +77,6 @@ export default {
   },
   router: {
     mode: process.env.NODE_ENV === 'production' ? 'hash' : 'history',
-    // base: './',
     base: process.env.NODE_ENV === 'production' ? './' : '/',
     scrollBehavior(to, from, savedPosition) {
       if (savedPosition) {
@@ -92,12 +91,12 @@ export default {
   },
   axios: {
     proxy: true,
-    baseURL: 'http://m-dev.parllay.cn/'
+    baseURL: 'http://brands-local.parllay.cn:3001/'
   },
   target: 'static',
   proxy: {
-    '/business2/': {
-      target: 'http://10.27.3.103:8093/',
+    '/business/': {
+      target: 'http://brands-local.parllay.cn:3001/',
       pathRewrite: {
         '^/business/': '/'
       }
