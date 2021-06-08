@@ -246,9 +246,10 @@ export default {
         // width: 7.658667rem /* 718/93.75 */;
         // height: 4.309333rem /* 404/93.75 */;
         right: 0;
-        top: 1.066667rem;
-        width: 50%;
-        height: 5.013333rem /* 470/93.75 */;
+        top: 0;
+        width: 100%;
+        height: 6.18667rem;
+        z-index: 99;
       }
     }
   }

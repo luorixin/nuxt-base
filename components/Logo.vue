@@ -9,7 +9,7 @@
 <style lang="scss">
 .header-logo {
   height: 100%;
-  width: 200px;
+  width: 2.133333rem /* 200/93.75 */;
   line-height: 0.448rem /* 42/93.75 */;
   display: flex;
   a {
@@ -22,7 +22,6 @@
     vertical-align: middle;
     img {
       display: inline-block;
-      height: 100%;
       width: 100%;
     }
   }
