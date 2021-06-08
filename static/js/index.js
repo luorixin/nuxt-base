@@ -23,7 +23,7 @@ window.onload = function(){
       ellipseBaseRadius: .15,
       ellipseAddedRadius: .02,
       ellipseAxisMultiplierX: 1.2,
-      ellipseAxisMultiplierY: 1.7,
+      ellipseAxisMultiplierY: 1.4,
       ellipseCX: w * 3 / 4,
       ellipseCY: h / 2,
         
