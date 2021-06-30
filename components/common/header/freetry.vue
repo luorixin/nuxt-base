@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-button :type="type" :plain="plain" @click="showFreeTry()"
+    <el-button :type="type" :plain="plain" @click="showRegisterInfo()"
       ><slot>立即免费使用</slot></el-button
     >
     <!-- dialog -->
@@ -122,6 +122,26 @@
         </el-form-item>
       </el-form>
     </el-dialog>
+
+    <!-- 免费使用 -->
+    <el-dialog
+      title=""
+      :visible.sync="registerInfoVisible"
+      width="30%"
+      :before-close="handleClose"
+      append-to-body
+      center
+    >
+      <template>
+        <span class="dialog-title">请问您是否以注册企业微信</span>
+        <span slot="footer" class="dialog-footer">
+          <el-button type="primary" @click="handleRegisterInfo(true)"
+            >已注册</el-button
+          >
+          <el-button @click="handleRegisterInfo(false)">未注册</el-button>
+        </span>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -172,6 +192,7 @@ export default {
     return {
       freeTryVisible: false,
       registerVisible: false,
+      registerInfoVisible: false,
       ruleForm: {
         password: '',
         username: ''
@@ -232,6 +253,7 @@ export default {
     handleClose() {
       this.freeTryVisible = false
       this.registerVisible = false
+      this.registerInfoVisible = false
     },
     showFreeTry() {
       // this.freeTryVisible = true
@@ -241,9 +263,24 @@ export default {
         '_blank'
       )
     },
+    handleRegisterInfo(isRegister) {
+      if (isRegister) {
+        window.open(
+          `${location.protocol}//${Config.apiUrl}/wework/public/install`,
+          '_blank'
+        )
+      }
+      this.registerInfoVisible = false
+    },
     showRegister() {
       this.freeTryVisible = false
+      this.registerInfoVisible = false
       this.registerVisible = true
+    },
+    showRegisterInfo() {
+      this.freeTryVisible = false
+      this.registerInfoVisible = true
+      this.registerVisible = false
     },
     async getVerifyCode() {
       if (Util.validatePhone(this.registerForm.phone)) {

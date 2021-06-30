@@ -6,6 +6,10 @@ const Config = {
   redirectUrl:
     process.env.NODE_ENV === 'production'
       ? 'm-dev.parllay.cn'
+      : 'brands-local.parllay.cn:3001',
+  apiUrl:
+    process.env.NODE_ENV === 'production'
+      ? 'api-dev.parllay.cn'
       : 'brands-local.parllay.cn:3001'
 }
 //
