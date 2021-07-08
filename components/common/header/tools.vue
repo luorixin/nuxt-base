@@ -1,13 +1,22 @@
 <template>
   <div class="mytools">
-    <freetry type="primary">登录</freetry>
+    <el-button type="primary" @click="login()">登录</el-button>
   </div>
 </template>
 
 <script>
-import freetry from './freetry.vue'
+import Config from '@/config'
 export default {
-  components: { freetry }
+  methods: {
+    login() {
+      // this.freeTryVisible = true
+      // this.registerVisible = false
+      window.open(
+        `${location.protocol}//${Config.redirectUrl}/login?redirect=apps/wecom/`,
+        '_blank'
+      )
+    }
+  }
 }
 </script>
 
